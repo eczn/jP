@@ -11,7 +11,7 @@
 ```
 
 然后记得：
-```
+``` html
 <script type="text/javascript" src="jP.js"></script>
 ```
 
