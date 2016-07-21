@@ -1,6 +1,6 @@
-# 编程的练习。。。 
-
-面向对象。。。 
+# jP
+　　jP利用浏览器内置的播放器 构建而成。 
+　　唯一的特色就是可以根据音频信息绘图。 
 
 
 用法： 
@@ -23,6 +23,8 @@ var jPen = new jPenCC(jP); 		// jPenCC(一个jP对象) , 启用绘图
 
 jPen.circleS(); 				// 绘图动画 circleS
 jPen.line(); 					// 绘图动画 line 
-								// 不要同时两个都执行 会出错 
+jPen.circleM();
+								// 可以同时执行。。
 
 ```
+
