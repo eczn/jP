@@ -21,7 +21,6 @@ var jP = (function(){
 	domCanvas.width =  parseInt(window.innerWidth);
 	domCanvas.height = parseInt(window.innerHeight);
 
-
 	return {
 		// DOM 
 		domAudio: domAudio,
@@ -84,16 +83,13 @@ var jPen = (function(){
 		},40);		
 	}
 
-
 	function circleS(g,width,height,output){
 		var avg = 0,i; 
 		jP.initAudio.analyser.getByteFrequencyData(jP.initAudio.output);
-		for(i=0;i<100;i+=1){
+		for(i=0;i<100;i+=10){
 			avg += output[i]; 
 		}
-		avg /= (100); 
-		
-		// console.log('avg = ' + avg );
+		avg /= 10;
 
 		g.beginPath();
 		g.fillStyle = 'rgba(255,255,255,0.6)';
@@ -199,7 +195,4 @@ var jPen = (function(){
 
 	}
 })();
-
-jP.domAudio.play();
-jPen.circleM(jP.domCanvas.getContext("2d"),jP.domCanvas.width,jP.domCanvas.height,jP.initAudio.output);
 
