@@ -1,6 +1,15 @@
-//jP2.js
-//var jP = {}; 
-
+/* 
+ * jP is a kind of player plugins based on canvas and web audio API 
+ * 
+ * usage : 1,add canvas tag named jP in .html 
+ *         2,and add code:'jP.init()' after <body> to use this script 
+ *         3,if sucess... you can see a simply player display... 
+ *
+ *         ** jP is bind to the audio and canvas html element (id is "jPA" and "jPC")
+ *
+ *         ** jPen has some function to draw. it needs some para 
+ * 
+ */ 
 
 function jPCC(domAudioId,domCanvasId){
 	var domAudio = window.document.getElementById(domAudioId);
@@ -102,9 +111,3 @@ function jPenCC(jP){
 	this.circleS = circleS; 
 }
 
-// var jP = new jPCC('jPA','jPC');
-// var jPen = new jPenCC(jP); 
-
-
-
-// jPen.circleS();
