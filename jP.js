@@ -5,8 +5,6 @@
  *         2,and add code:'jP.init()' after <body> to use this script 
  *         3,if sucess... you can see a simply player display... 
  *
- *         ** jP is bind to the audio and canvas html element (id is "jPA" and "jPC")
- *
  *         ** jPen has some function to draw. it needs some para 
  * 
  */ 
@@ -49,10 +47,6 @@ function jPCC(domAudioId,domCanvasId){
 	this.returnOutputFrequency = returnOutputFrequency; 
 	this.returnOutputDomain = returnOutputDomain; 
 }
-
-
-
-
 
 function jPenCC(jP){
 	var g = jP.domCanvas.getContext('2d'),
@@ -107,7 +101,47 @@ function jPenCC(jP){
 		}); 
 	}
 
+	function circleM(){
+		output = jP.returnOutputFrequency();
+//output[Math.random()*output.length]
+
+		var tempR = Math.random()*output[20]/2;
+
+		_drawArc(g,width*Math.random(),height*Math.random(),tempR,0,0.5);
+
+		g.beginPath();
+		g.fillStyle = 'rgba(255,255,255,0.3)';
+		g.fillRect(0,0,width,height);
+		g.closePath(); 
+
+		//console.log( output[ parseInt(Math.random()*output.length) ] );
+
+		//setTimeout(circleM,40);
+
+		window.requestAnimationFrame(circleM);
+	}
+
+	function _drawArc(ctx,cX,cY,r,i,vi){
+		
+		ctx.beginPath();
+		// ctx.fillStyle = 'rgba(255,255,255,0.6)';
+		// ctx.fillRect(0,0,width,height);
+		ctx.strokeStyle = '#332233';
+		ctx.arc(cX, cY, i, 0, 2 * Math.PI, false);
+		ctx.stroke();
+		
+		//console.log(output);
+
+		requestAnimationFrame(function(){
+			if(r<i) return ;
+			_drawArc(ctx,cX,cY,r,i+vi,vi)
+		})
+	}
+
 	this.line = line;
 	this.circleS = circleS; 
+	this.circleM = circleM;
 }
 
+//var jP = new jPCC('jPA','jPC');
+//var jPen = new jPenCC(jP); 
